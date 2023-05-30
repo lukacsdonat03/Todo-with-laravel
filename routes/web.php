@@ -22,3 +22,15 @@ Route::post('/saveItemRoute',[TodoListController::class,'saveItem'])->name('save
 Route::post('/markCompleted/{id}',[TodoListController::class,'markCompleted'])->name('markCompleted');
 
 Route::post('/markInCompleted/{id}',[TodoListController::class,'markInCompleted'])->name('markInCompleted');
+
+//Login routes (TODO: később Controllerbe kiszervezés)
+
+Route::get('/login',function(){
+    return view('login');
+});
+
+//Register routes (TODO: később controller)
+
+Route::get('/register',function(){
+    return view('register');
+});
