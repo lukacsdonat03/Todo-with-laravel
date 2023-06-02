@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoListController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,4 @@ Route::get('/login',function(){
 
 //Register routes (TODO: később controller)
 
-Route::get('/register',function(){
-    return view('register');
-});
+Route::post('/register',[UserController::class,'register'])->name('register');

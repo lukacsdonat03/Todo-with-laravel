@@ -25,21 +25,22 @@
             <h1>This will be the Register page</h1>
     
             <div class="auth-card" >
-                <form {{-- action="{{route('register')}}" --}} method="post" accept-charset="utf-8">
+                <form action="{{route('register')}}" method="post" accept-charset="utf-8">
                 
                     {{ csrf_field() }}
+                    
     
                     <label for="email">Please enter your Email address</label>
                     <br>
-                    <input type="email" name="email" style="color:black;>
+                    <input type="email" name="email" style="color:black;">
                     <br>
                     <label for="username">Username</label>
                     <br>
-                    <input type="text" name="username" style="color:black;>
+                    <input type="text" name="username" style="color:black;">
                     <br>
                     <label for="Password">Password</label>
                     <br>
-                    <input type="password" name="password" style="color:black;>
+                    <input type="password" name="password" style="color:black;">
                     <br>
                     <button type="submit" class="btn btn-light" style="margin-top:11px;">Sign Up</button>
                 </form>
