@@ -26,7 +26,7 @@
             <h1>This will be the Login page</h1>
     
             <div class="auth-card">
-                <form method="POST"  {{-- action="{{route('login')}}" --}} accept-charset="UTF-8">
+                <form method="POST"  action="{{route('loginUser')}}" accept-charset="UTF-8">
                     
                     {{csrf_field()}}
     

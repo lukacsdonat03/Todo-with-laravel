@@ -17,7 +17,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/',[TodoListController::class, 'index']);
+Route::get('/',[TodoListController::class, 'index'])->name('home');
 
 Route::post('/saveItemRoute',[TodoListController::class,'saveItem'])->name('saveItem'); //action tag miatt kell a name 
 
@@ -25,12 +25,8 @@ Route::post('/markCompleted/{id}',[TodoListController::class,'markCompleted'])->
 
 Route::post('/markInCompleted/{id}',[TodoListController::class,'markInCompleted'])->name('markInCompleted');
 
-//Login routes (TODO: később Controllerbe kiszervezés)
-
-Route::get('/login',function(){
-    return view('login');
-});
-
-//Register routes (TODO: később controller)
-
-Route::post('/register',[UserController::class,'register'])->name('register');
+Route::get('/login',[UserController::class,'index'])->name('login');
+Route::get('/register',[UserController::class,'register'])->name('regitser');
+Route::post('/register',[UserController::class,'registerUser'])->name('registerUser');
+Route::post('/login',[UserController::class,'loginUser'])->name('loginUser');
+Route::get('/logout',[UserController::class,'logout'])->name('logout');

@@ -25,7 +25,7 @@
             <h1>This will be the Register page</h1>
     
             <div class="auth-card" >
-                <form action="{{route('register')}}" method="post" accept-charset="utf-8">
+                <form action="{{route('registerUser')}}" method="POST" accept-charset="utf-8">
                 
                     {{ csrf_field() }}
                     
@@ -52,5 +52,6 @@
     
     <!--Bootstrap Script-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 </body>
 </html>
