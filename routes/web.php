@@ -26,7 +26,7 @@ Route::post('/markCompleted/{id}',[TodoListController::class,'markCompleted'])->
 Route::post('/markInCompleted/{id}',[TodoListController::class,'markInCompleted'])->name('markInCompleted');
 
 Route::get('/login',[UserController::class,'index'])->name('login');
-Route::get('/register',[UserController::class,'register'])->name('regitser');
+Route::get('/register',[UserController::class,'register'])->name('register');
 Route::post('/register',[UserController::class,'registerUser'])->name('registerUser');
 Route::post('/login',[UserController::class,'loginUser'])->name('loginUser');
 Route::get('/logout',[UserController::class,'logout'])->name('logout');

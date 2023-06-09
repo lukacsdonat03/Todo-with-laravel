@@ -16,9 +16,33 @@
         </style>
     </head>
     <body class="antialiased">
+        <div>
+            
+        </div>
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen  dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 ">
            <div style="color:white">
             <h1 >TODO APP WITH LARAVEL</h1>
+            <br>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto">
+                    @guest
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                      </li>
+                    @else
+                      <li class="nav-item">
+                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                          Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="GET" style="display: none;">
+                          @csrf
+                        </form>
+                      </li>
+                    @endguest
+                  </ul>
+                </div>
+              </nav>
             <br>
                 @foreach ($listItems as $listItem)
                     <div class="flex" style="align-item: center;">

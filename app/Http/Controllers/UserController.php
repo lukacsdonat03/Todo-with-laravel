@@ -9,8 +9,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
+
 class UserController extends Controller
 {
+
+
     public function index(){
         return view('login');
     }
@@ -39,17 +42,19 @@ class UserController extends Controller
     }
 
     public function loginUser(Request $request){
-        $request->validate([
-            'email' => 'required|string|email|unique:users',
-            'password' => 'required',
-        ]);
+    
+        $credentials = $request->only('email', 'password');
 
-        $credentials = $request->only('email','password');
+        if (auth()->attempt($credentials, $request->filled('remember'))) {
+            $request->session()->regenerate();
 
-        if(Auth::attempt($credentials)){
-            return redirect()->intended('home')->with('success','Logged in successfully');
+            return redirect('/');
         }
-        return redirect(route('login'))->with('error','Invalid credentials...');
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->withInput($request->only('email', 'remember'));
+              
     }
     
     function logout(){

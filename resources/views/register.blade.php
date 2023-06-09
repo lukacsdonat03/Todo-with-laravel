@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -23,7 +23,17 @@
     <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen  dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 ">
         <div class="auth-background" style="background-color:  #1f2c47;color:white;border-radius:25px; padding:22px; box-shadow:5px 10px #2f426a;">
             <h1>This will be the Register page</h1>
-    
+            
+            <div class='container'>
+                @if ($errors->any())
+                    <div>
+                        @foreach ($errors->all() as $error)
+                            <span>{{ $error }}</span>
+                        @endforeach
+                    </div>
+                @endif
+            </div>
+
             <div class="auth-card" >
                 <form action="{{route('registerUser')}}" method="POST" accept-charset="utf-8">
                 
@@ -34,9 +44,9 @@
                     <br>
                     <input type="email" name="email" style="color:black;">
                     <br>
-                    <label for="username">Username</label>
+                    <label for="name">Name</label>
                     <br>
-                    <input type="text" name="username" style="color:black;">
+                    <input type="text" name="name" style="color:black;">
                     <br>
                     <label for="Password">Password</label>
                     <br>
